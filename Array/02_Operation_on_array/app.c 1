@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+
+struct Array {
+    int *pointer;
+    int size;
+    int length ;//Number of the elements
+};
+
+void Display(Array arr){
+    for(int i=0;i<arr.length;i++){
+        cout<<"Elements are: "<<arr.pointer[i];
+    };
+
+};
+
+void Append(Array &arr,int value){
+    if(arr.length== arr.size){
+        cout<<"Memory full";
+    }else{
+        arr.pointer[arr.length] =value ;
+        arr.length++;
+    }
+
+};
+
+void InsertAt(Array &arr, int pos ,int value){
+    if(arr.length>=arr.size){
+        cout<<"Memory full";
+    }else{
+        if (pos >= 0 && pos <= arr.length){
+            for(int i = arr.length;i>pos;i--){
+            arr.pointer[i] = arr.pointer[i-1];
+        };
+        arr.pointer[pos] = value;
+        arr.length++;
+        }
+    };
+};
+
+// case pos = 3
+//size = 5{1,2,3,4,}
+//length = 5
+void Delete(Array &arr,int pos){
+    if (pos < 0 || pos >= arr.length) {
+        return;
+    }else{
+            for(int i =pos;i<arr.length-1;i++){
+                arr.pointer[i] = arr.pointer[i+1];
+            }
+            arr.length--;
+        }
+};
+
+int main(){
+    Array arr;
+    cout<<"Enter the size of the array: ";
+    cin>>arr.size;
+
+    cout<<"How many elements do you need to insert";
+    cin>>arr.length;
+
+    arr.pointer = new int[arr.size];
+
+    cout<<"Enter all elements";
+    for(int i=0;i<arr.length;i++) cin>>arr.pointer[i];
+    Append(arr,1000);
+    Display(arr);
+    return 0;
+}
+

@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int  fun(int num){
+    static int x =0;
+    if(num>0){
+        x++;
+        return fun(num-1)+x;
+    }
+    return 0;
+}
+
+int main(){
+    int num = 5;
+    fun(num);
+    cout<<"Control back to the Main :) ";
+
+    return 0;
+}
+/**
+ * ! static variable are created inside the code area where there is a section for the static and the global
+ * ! Will the function create x in every time when it is called 
+ * ! No ! 
+ * ! At the loading time of a program static variables allocated in the code area
+ * ! 
+ */

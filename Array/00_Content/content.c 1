@@ -1,0 +1,33 @@
+/**
+ * ! In this section we gonna learn the All the stuff that is associated with array
+ * ! Array is a basic ds in every language
+ * ! Representation of the data is defined by the compiler itself
+ * ! Operation on the data is not defined by the compiler
+ * ! We are responsible To provide the operations
+ * ? All together we can call it has ADT
+ * * ----Data------
+ * ! Array space
+ * ! Size 
+ * ! Length(No of elements)
+ * * -----Operations-----
+ * ! Display();
+ * ! Add(x)/Append(x);
+ * ! Insert(index,x);
+ * ! Delete(index);
+ * ! Search(x);
+ * ! Get(index);
+ * ! set(index,x);
+ * ! reverse();
+ * ! Shift/Rotate()
+ */
+
+/**
+ * ? How to create the array space
+ * ! Their are two ways 
+ * ! dynamically in the heap // For large space// Size is determined in the runtime
+ * !Ex-> int * A
+ * ! A = new int[size]// the size  is from the user or we can collect during run time with required size
+ * ! In static in the stack fixed // Size is determined in the compile time
+ * ! Ex-> int arr[10];
+ * ! 
+ */

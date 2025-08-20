@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int sum(int num){
+
+    if(num == 0){
+        return 1;
+    }else{
+        return sum(num-1)*num;
+    };
+    
+}
+
+int main(){
+    int num = 0;
+    cout<<"Enter the number to find the factorial: "<<endl;
+    cin>>num;
+    
+    cout<<num<<"! = "<<sum(num)<<endl;
+
+    return 0;
+};

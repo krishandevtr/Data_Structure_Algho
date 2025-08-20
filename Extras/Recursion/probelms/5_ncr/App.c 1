@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+
+int NCR(int n,int r){
+    if(r ==0 || n ==r){
+        return 1;
+    }
+    else{
+        return NCR(n-1,r-1)+NCR(n-1,r);
+    }
+
+
+}
+
+int main(){
+
+
+    return 0;
+}
+
+/**
+ * ! binomial coefficient formula
+ * ! This is used to select the subset of the given objects
+ * ! How many different ways we can select a given object 
+ * ! if it is color pattern a,b,c,d,e,r,  How many different way can we select any three of them
+ * ! A,b,c a,b,d,a,c,b etc
+ * ! ncr = n!/(r!*(n-r)!);
+ * ! For a simple function we can take three variables
+ * ! t0,t1,t2
+ * ! t0  = fact(n)
+ * ! t1 = fact(r)
+ * ! t2 = fact(n-r)
+ * ! then we can return t0/t1*(t2) This  is the value for the ncr
+ * ! When we need to use a recursive function we need to observe the pascal triangle
+ * ! We can use the pascal triangle row if you are not familiar with this refer the stuff
+ * !
+ * 
+ */

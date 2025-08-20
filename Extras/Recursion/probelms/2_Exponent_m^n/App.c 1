@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+int sum(int base , int pow){
+    if(pow == 0) return 1;
+    else return sum(base,pow-1)*base;
+}
+
+
+//Another efficient method
+int sum_2(int base , int pow){
+    if(pow == 0) return 1;
+    if(pow %2 == 0){
+        return sum_2(base *base,pow/2);
+    }
+    else{
+        //return sum_2(base *(base*base,((pow-1)/2)));
+    }
+}
+
+int main(){
+    int num = 0;
+    int ex = 0;
+    cout<<"Enter the base: "<<endl;
+    cin>>num;
+    cout<<"Enter the power: "<<endl;
+    cin>>ex;
+    
+    cout<<num<<"^"<<ex<<sum(num,ex)<<endl;
+
+    return 0;
+};

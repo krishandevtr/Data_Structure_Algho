@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+double taylorSeries(int base, int n){
+    static double pow =1;
+    static double  fact= 1;
+    double r;
+    
+    if(n == 0) return 1;
+
+    else{
+        r = taylorSeries(base,n-1);
+        pow*=base;
+        fact*=n;
+        return r+(pow/fact);
+    };
+}
+
+
+
+
+int main(){
+    int base ;
+    int pow ;
+    cout<<"Enter the base number: ";
+    cin>>base;
+    cout<<"Enter the power of the number: "<<endl;
+    cin>>pow;
+    cout<<taylorSeries(base,pow)<<endl;
+    return 0;
+};

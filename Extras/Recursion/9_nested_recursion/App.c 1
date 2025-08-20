@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+
+int  fun(int n){
+    if(n>100){
+
+        return n-10;
+    }else{
+        return fun(fun(n+11)); //? Unless the nested fun call is done Then only the outer fun is called 
+    };
+
+};
+
+
+
+
+int main(){
+    int para = 10;
+
+    cout<<fun(para)<<endl;
+
+    return 0;
+}
+
+/**
+ * ? In nested Recursion the fun will pass a recursion function as parameter
+ * !  
+ */

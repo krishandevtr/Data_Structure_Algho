@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+
+
+void fun( int num){
+
+if(num>0){
+    
+    cout<<"This is the results: "<<num<<endl;
+    fun(num - 1);
+}
+};
+
+
+int main(){
+    int num = 0;
+
+    fun(num);
+
+    return 0;
+}
+
+/**
+ * * How the recursion uses the stack 
+ * ! First of all the main is executed 
+ * ! Then a space for variable num is reserved in the activity record of the main function 
+ * ! Next step is to call the function fun(3);
+ * ! This gonna create a frame in the stack for this function,and in that record the variable num with value 3 is stored
+ * ! cou<< is worked;
+ * ! Then the function(3) gonna call again this time fun(2)
+ * ! Frame with variable 2 is created 
+ * ! Cout<< is worked
+ * ! Again this func(2) will call the fun(1)
+ * ! This gonna create a frame inside stack with variable 1 
+ * !  Cout<<
+ * ! Again the function(0) is called and creates a variable with 0
+ * ! But cout<< does not work due to base condition got false
+ * ! This gonna terminates the fun(0),and control back to fun(1),then it will get terminated,Then fun(2) will get the control
+ * ! It will get terminated then the fun(3), the first call gets control it will get terminated
+ * ! Finally control back to the main();
+ * ! 
+ */
+/**
+ * ? What is the size of the stack for this function
+ * ! 5 because the function itself called 4 time and the stack frame for the main()
+ * ! How much memory is using ,Each record have one variable with num and the it is int
+ * ! Therefore the memory is 4*4
+ * ! ! 6 bytes is used 
+ * ! Total calls are: n+1 
+ */
+
+/**
+ * ? What is the time complexity 
+ * ! In here ,In the function fun() we can see that ntg is doing just printing
+ * ! If we assume each statement take 1 unit of time
+ * ! Then this gonna take 3 unit of time
+ * ! If the parameter is 5 then , 5 unit of time,eh
+ * ! For n then its n unit of time
+ * ? Big O(n);
+ * 
+ */
+
+/**
+ * ? RECURRENCE RELATION ( Another method)
+ * ! Assume that the time taken for the function is T(n);
+ * ! Then T(n) = sum of all statements inside the function
+ * ! For the condition the time is 1 , for printing it is 1, for the next call it is T(n-1)
+ * ! Why t(n-1) just look above example , We have assumed that fun() will take t(n) time;
+ * ! So for the next call it will take T(n-1)
+ * ! Then T(n) = T(n-1)+2
+ * ! 
+ * !          1     n=0
+ * ! T(n) = [           ]
+ * !          T(n-1)+2       // since 2 is constant consider it has 1
+ * ! +2 is the constant amount of time, 1 is the last call unit of time at n=0
+ * ! Lets solve this 
+ * ! T(n) = T(n-1) + 2
+ * !  = T(n-2) + 2 + 2
+ * ! = T(n-3) + 2 + 2 + 2
+ * !  = ...
+ * !  = T(0) + 2n
+ * ! T(n) = 1 + 2n
+
+
+ */

@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+
+void fun( int num){
+
+if(num>0){
+    /// Assume that their is a statement;
+    // ? when above statement is gonna be work ,At calling time, We can consider that this is ascending 
+    fun(num - 1);
+    /// Assume that their is another statement;
+    // ? when above statement is gonna be work ,At Returning time,We can consider that this is Descending 
+
+}
+};
+
+
+int main(){
+    int num = 0;
+
+    fun(num);
+
+    return 0;
+}
+/**
+ * * We can compare the recursion with loop what is the difference 
+ * * Loop will have only ascending phase 
+ * * But the Recursive function will have Both Ascending and the Descending 
+ * * It is so  powerful than the loop 
+ * * 
+ */

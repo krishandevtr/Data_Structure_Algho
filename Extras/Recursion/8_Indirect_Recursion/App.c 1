@@ -1,0 +1,42 @@
+// #include<iostream>
+// using namespace std;
+// void firstFun(int n);
+// void secondFun(int n){
+//     ///some condition
+//     if(n>1){
+//         cout<<n<<endl;
+//         ///firstFun(n/2);
+        
+//     }
+    
+
+// }
+
+
+// void firstFun(int n){
+//  /// Some condition
+//  if(n>0){
+//     cout<<n<<endl;
+//     secondFun(n-1);
+//  }
+  
+
+// }
+
+
+
+
+
+// int main(){
+//     int x = 20;
+//     firstFun(x);
+// };
+
+
+// /**
+//  * ? In the indirect Recursion (Mutual recursion)
+//  * ! They are calling one another in a circular fashion
+//  * ! IF there is 3 function a b c
+//  * ! So IN this idea a will b, b will c , c will a in this way this will be in a circular 
+//  * ! Recursion
+//  */

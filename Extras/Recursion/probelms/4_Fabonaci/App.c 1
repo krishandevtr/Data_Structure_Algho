@@ -1,0 +1,73 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+//using memoization
+vector<int>f;
+int fibMain(int n){
+    if(n<=1){
+        f[n] = n;
+        return n;
+    }else{
+        if(f[n-2] == -1){
+            f[n-2] == fibMain(n-2);
+        }
+        if(f[n-1] == -1){
+            f[n-1] == fibMain(n-1);
+        }
+
+        f[n]=f[n-2] +f[n-1];
+        return f[n];
+    }
+}
+
+
+
+
+//Normal recursion 
+int fib(int n){
+    if(n<=1){
+        return n;
+    };
+
+    return fib(n-2)+fib(n-1);// Assume that the fib(n-2) == fib(n-1), So that this might call the function two times
+    // IF a function is calling it 2 times with reduced value of 1 then we can say that the time is 
+    //? ~O(2^n); This is taking much time than the iterative one below
+}
+
+int fibLoop(int n){
+    if(n<=1) return n;
+    int t0 = 0 ;int  t1 =1;
+    int sum = 0;
+    for(int i = 2;i<=n;i++){//n
+        sum = t0+t1; // n-1
+        t0 = t1;// n-1
+        t1= sum;//n-1
+    } 
+    return sum;//1
+
+
+   //? Order(n); 
+}
+
+
+int main(){
+    cout<<fibMain(7)<<endl;
+
+
+    return 0;
+}
+
+/**
+ * ! This is a excessive function 
+ * ! Because when you observe the function it is calling itself for mutiple time for the value
+ * ! For instance f(2) it is called multiple times in the function
+ * ! So to optimize the solution we need to use a static variable(array)
+ * ! In each call of the function , for instance if we have f(2) then we need to check the array is their any value at index at 2 if yes donot need to call
+ * ! Else append the value 
+ * ! Then next call is f(1) look the index 1 if their is any value donot call
+ * ! So now check the time complexity it will n+1 it means N
+ * ?  This is known as the memoization 
+ * !
+ */
+

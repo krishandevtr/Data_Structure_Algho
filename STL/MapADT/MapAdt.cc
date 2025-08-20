@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <optional> 
 
 template <typename K, typename V>
 struct Node
@@ -6,95 +8,74 @@ struct Node
     K Key;
     V Val;
 };
+
 template <typename K, typename V>
 class MapAdt
 {
 private:
-    Node<K, V> *data;
-    int _size;
-    int capacity;
+    std::vector<Node<K, V>> data;
 
 public:
-    MapAdt()
-    {
-        this->capacity = 2;
-        this->_size = 0;
-        data = new Node<K, V>[capacity];
-    }
+    MapAdt() = default; // no need for manual constructor
 
-    void insert(K key, V value)
+    void insert(const K& key, const V& value)
     {
         // Check if key already exists; if yes, update and return
-        for (int i = 0; i < _size; i++)
+        for (auto& node : data)
         {
-            if (data[i].Key == key)
+            if (node.Key == key)
             {
-                data[i].Val = value;
+                node.Val = value;
                 return;
             }
         }
 
-        // If capacity is full, resize the array
-        if (_size == capacity)
-        {
-            capacity *= 2;
-            Node<K, V> *tempArr = new Node<K, V>[capacity];
-            for (int i = 0; i < _size; i++)
-            {
-                tempArr[i] = data[i];
-            }
-            delete[] data;
-            data = tempArr;
-        }
-
-        // Insert the new key-value pair
-        data[_size].Key = key;
-        data[_size].Val = value;
-        _size++;
+        // Insert new key-value pair
+        data.push_back({key, value});
     }
 
-    bool find(K key)
+    bool find(const K& key) const
     {
-        for (int i = 0; i < _size; i++)
+        for (const auto& node : data)
         {
-            if (data[i].Key == key)
+            if (node.Key == key)
                 return true;
         }
         return false;
     }
 
-    V get(K key)
+    std::optional<V> get(const K& key) const
     {
-        for (int i = 0; i < _size; i++)
+        for (const auto& node : data)
         {
-            if (data[i].Key == key)
+            if (node.Key == key)
             {
-                return data[i].Val;
+                return node.Val; // return wrapped in optional
             }
-            return;
         }
+        return std::nullopt; // return empty if not found
     }
 
-void remove(K key)
-{
-    for (int i = 0; i < _size; i++)
+    void remove(const K& key)
     {
-        if (data[i].Key == key)
+        for (auto it = data.begin(); it != data.end(); ++it)
         {
-            // Shift all elements after i to the left
-            for (int j = i; j < _size - 1; j++)
+            if (it->Key == key)
             {
-                data[j] = data[j + 1];
+                data.erase(it); // vector handles shifting
+                return;
             }
-            _size--; // Decrease the size
-            return;
         }
+        std::cout << "Key not found: " << key << std::endl;
     }
-    std::cout << "Key not found: " << key << std::endl;
-}
 
-bool isEmpty(){
-    return _size==0;
-}
+    bool isEmpty() const
+    {
+        return data.empty();
+    }
 
-}
+    int size() const
+    {
+        return static_cast<int>(data.size());
+    }
+};

@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+
+double taylorSeries(int base, int n){
+    int s = 1;
+    for(;n>0;n--){
+         s = 1+(base /n*s);
+    }
+    return s;
+}
+
+double e(int x, int n){
+    static int s =1;//? Why we have used the stuff because we need to get the previous result then only we can get next operation result 
+    if(n==0){
+        return s;
+    }
+    s= 1+(s/n*s);
+    return e(x,n-1);
+
+    
+}
+
+
+
+
+int main(){
+    int base ;
+    int pow ;
+    cout<<"Enter the base number: ";
+    cin>>base;
+    cout<<"Enter the power of the number: "<<endl;
+    cin>>pow;
+    cout<<taylorSeries(base,pow)<<endl;
+    return 0;
+};
+
+/**
+ * ! This is something more optimized
+ * ! With less multiplication
+ * ! When we look the serries how much multiplication are we doing 
+ * ! In the term it is 1, no operation is done
+ * ! Second it is X/1 no multiplication
+ * ! Third x*x/1*2 so 2 times we are multiplying
+ * ! Fourth = 4
+ * ! 5th = 6
+ * ! So we can take a 2 common eh
+ * ! 2[1,2,3,4,5,6] so on
+ * ! Inside brackets we know it is n(n-1)/2
+ * ! 2*n(n+1)/2
+ * ! n(n+1) times multiplication need to get the result for n
+ * ! O(n^2) Quadratic
+ */
+
+/**
+ * ? 1 + X/2 + x^2/3! + x^3/3!......x^n/n!
+ * ! 1+x/1 [1 + x/2*3 , x^3/2*3*4....x^n-1/n!];
+ * ! Can we reduce the stuff more
+ * ! We can
+ * ! 1 +x/1[1 + x/2[1+x/3 +x^2/3*4...]]
+ * ! 1+x/1[1+x/2[1+x/3[1+x/4...]]]
+ * ! o(n) We can reduce ) O(n^2) To O(n) Linear;
+ * ! So in the most time we done operations durring return time of the function
+ * ! But in here , as usual we have decreased the value till 0
+ * ! So our first va;ue wil be n we can take n=4
+ * ! So 4, Then instead of decrement we need to do something TO get the result 
+ * ! x/4 then we will add the value to 1 then we will get the result of the last bracket
+ * ! Then use that result and multiply to the x/3 adn then add 1 
+ * ! You got it right
+ * ! This can be easily done using the Loop 
+ * !  
+ */ 
