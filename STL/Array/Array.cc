@@ -21,7 +21,7 @@ public:
     }
 
 
-    Array(const Array& other) : size_(other.size_), capacity_(other.capacity_) {
+    Array(const Array& other) : size_(other.size_), capacity_(other.capacity_){
         data_ = new T[capacity_];
         for (int i = 0; i < size_; ++i) {
             data_[i] = other.data_[i];

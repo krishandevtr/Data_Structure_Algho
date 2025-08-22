@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/krish/OneDrive/Desktop/500-Problems/STL/QueueADT",
-      "program": "c:/Users/krish/OneDrive/Desktop/500-Problems/STL/QueueADT/build/Debug/outDebug",
+      "cwd": "c:/Users/krish/OneDrive/Desktop/500-Problems/Tree",
+      "program": "c:/Users/krish/OneDrive/Desktop/500-Problems/Tree/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
