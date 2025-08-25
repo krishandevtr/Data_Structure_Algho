@@ -102,6 +102,10 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "cstring": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "unordered_set": "cpp"
   }
 }

@@ -32,3 +32,25 @@
 //  20  40  60  80 <- Level 3
 //
 
+
+// Drawbacks of a basic BST:
+// 1. The height of the tree depends on the order of insertion.
+// 2. We cannot control the insertion order in general.
+// 3. If nodes are inserted in sorted order, the BST becomes skewed,
+//    leading to poor performance (O(n) instead of O(log n)).
+
+//! Need for height control:
+// - To maintain efficient operations, we need a way to control the height of the tree.
+// - Standard BST does not automatically balance itself.
+
+//! Solution: AVL Tree
+// - AVL Tree is a self-balancing Binary Search Tree (BST).
+// - It automatically maintains balance after insertions and deletions.
+// - Balance Factor = height(left subtree) - height(right subtree)
+// - Allowed Balance Factor values: -1, 0, +1
+// - If the balance factor goes out of this range, rotations are performed:
+//     1. Right Rotation (LL case)
+//     2. Left Rotation (RR case)
+//     3. Left-Right Rotation (LR case)
+//     4. Right-Left Rotation (RL case)
+// - This ensures that height remains O(log n), keeping search, insert, and delete efficient.
