@@ -18,7 +18,7 @@
 
 //* -------------------------- ROTATIONS IN AVL TREE --------------------------
 
-// 1. **Right Rotation (LL Case)** – Left-heavy imbalance
+//* 1. Right Rotation (LL Case)** – Left-heavy imbalance
 //    Triggered when: Node is unbalanced due to insertion in **left-left** position.
 //
 //    BEFORE ROTATION:
@@ -34,7 +34,7 @@
 //      x   z
 
 
-// 2. **Left Rotation (RR Case)** – Right-heavy imbalance
+//* 2. Left Rotation (RR Case)** – Right-heavy imbalance
 //    Triggered when: Node is unbalanced due to insertion in **right-right** position.
 //
 //    BEFORE ROTATION:
@@ -50,7 +50,7 @@
 //      z   x
 
 
-// 3. **Left-Right Rotation (LR Case)** – Left-Right imbalance
+//* 3. Left-Right Rotation (LR Case)** – Left-Right imbalance
 //    Triggered when: Node is unbalanced due to insertion in **left-right** position.
 //
 //    BEFORE ROTATION:
@@ -73,7 +73,7 @@
 //      y   z
 
 
-// 4. **Right-Left Rotation (RL Case)** – Right-Left imbalance
+//* 4. Right-Left Rotation (RL Case)** – Right-Left imbalance
 //    Triggered when: Node is unbalanced due to insertion in **right-left** position.
 //
 //    BEFORE ROTATION:

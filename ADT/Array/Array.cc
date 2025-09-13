@@ -58,6 +58,7 @@ public:
         size_++;
     }
 
+
     T pop_back() {
         if (size_ == 0) {
             throw std::out_of_range("pop from empty array");
